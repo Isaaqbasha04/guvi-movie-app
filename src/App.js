@@ -52,19 +52,50 @@ function App() {
 
 export default App;
 
+function welcome(props){
+  console.log(props);
+
+  return(
+    <div>
+      <h1>Hello, {props.name} </h1>
+    </div>
+  )
+}
+
 
 function Message(props) {
   
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <div>
       <img className="profile-pic"
         src={props.pic} alt={props.name} />
-      <h1>Hello, {props.name} 🎉🎉 </h1>
+      <h1>Hello, {props.name} 🎉🎉😎 </h1>
+
+      <counter />
     </div>
   );
 
 
+}
+
+function counter(){
+
+  const [like, setLike] = useState(0);
+  const [dislike, setDisLike] = useState(0);
+
+
+  return (
+
+    <div className="counters-container">
+      <button className="like-button" onclick={() => setLike(like+1)}>
+        👍{like}
+      </button>
+      <button className="dislike-button" onclick={() => setLike(dislike+1)}>
+      👎 {dislike}
+      </button>
+    </div>
+  )
 }
